@@ -31,7 +31,7 @@ function dealRequestUrl(url, pathParm) {
   if (!pathParm) return url;
   let dealurl = url;
   Object.keys(pathParm).forEach((ele) => {
-    url.replace(new RegExp(ele, "ig"), pathParm[ele]);
+    dealurl = dealurl.replace(`{${ele}}`, pathParm[ele]);
   });
   return dealurl;
 }

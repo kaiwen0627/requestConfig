@@ -24,6 +24,29 @@ export default {
       .then((res) => {
         console.log("res", res);
       });
+    // 发送请求
+    userInfoServer.getUserName
+      .postdata({
+        body: {
+          id: 223,
+        },
+      })
+      .then((res) => {
+        console.log("res", res);
+      });
+    // 发送get请求,请求路径带参数
+    userInfoServer.getUserList
+      .getdata({
+        queryParm: {
+          id: 223,
+        },
+        pathParm: {
+          id: 567,
+        },
+      })
+      .then((res) => {
+        console.log("res", res);
+      });
   },
 };
 </script>
