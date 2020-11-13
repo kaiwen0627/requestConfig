@@ -1,19 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import HelloWorld from "./components/HelloWorld.vue";
+import { userInfoServer } from "./request";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+  created() {
+    // 发送请求
+    userInfoServer.getUserName
+      .getdata({
+        queryParm: {
+          id: 223,
+        },
+      })
+      .then((res) => {
+        console.log("res", res);
+      });
+  },
+};
 </script>
 
 <style>
